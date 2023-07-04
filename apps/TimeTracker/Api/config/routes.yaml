@@ -1,0 +1,9 @@
+controllers:
+  resource:
+    path: ../src/Controller/
+    namespace: TimeTracker\Infrastructure\Api\Controller
+  type: attribute
+
+favicon:
+  path: /favicon.ico
+  methods: GET
