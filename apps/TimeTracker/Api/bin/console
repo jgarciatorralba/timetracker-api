@@ -13,8 +13,8 @@ if (!in_array(PHP_SAPI, ['cli', 'phpdbg', 'embed'], true)) {
 
 set_time_limit(0);
 
-$root_path = dirname(__DIR__, 4);
-require_once $root_path . '/vendor/autoload_runtime.php';
+$root_path = dirname(__DIR__);
+require_once $root_path . '/../../../vendor/autoload_runtime.php';
 
 if (!class_exists(Application::class) || !class_exists(Dotenv::class)) {
     throw new LogicException('You need to add "symfony/framework-bundle" and "symfony/dotenv" as Composer dependencies.');
