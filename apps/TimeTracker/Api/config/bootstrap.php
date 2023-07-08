@@ -2,9 +2,9 @@
 
 use Symfony\Component\Dotenv\Dotenv;
 
-$root_path = dirname(__DIR__);
+$root_path = dirname(__DIR__, 4);
 
-require $root_path . '/../../../vendor/autoload_runtime.php';
+require $root_path . '/vendor/autoload_runtime.php';
 
 // Load cached env vars if the .env.local.php file exists
 // Run "composer dump-env prod" to create it (requires symfony/flex >=1.2)
