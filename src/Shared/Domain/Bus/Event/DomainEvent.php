@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared\Domain\Bus\Event;
+namespace App\Shared\Domain\Bus\Event;
 
-use TimeTracker\Shared\Domain\ValueObject\Uuid;
-use TimeTracker\Shared\Utils;
+use App\Shared\Domain\ValueObject\Uuid;
+use App\Shared\Utils;
 use DateTimeImmutable;
 
 abstract class DomainEvent

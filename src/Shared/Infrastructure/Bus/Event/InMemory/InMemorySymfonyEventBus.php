@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared\Infrastructure\Bus\Event\InMemory;
+namespace App\Shared\Infrastructure\Bus\Event\InMemory;
 
-use TimeTracker\Shared\Domain\Bus\Event\DomainEvent;
-use TimeTracker\Shared\Domain\Bus\Event\EventBus;
+use App\Shared\Domain\Bus\Event\DomainEvent;
+use App\Shared\Domain\Bus\Event\EventBus;
 use Symfony\Component\Messenger\Exception\NoHandlerForMessageException;
 use Symfony\Component\Messenger\MessageBusInterface;
 

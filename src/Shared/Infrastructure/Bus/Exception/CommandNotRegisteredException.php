@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared\Infrastructure\Bus\Exception;
+namespace App\Shared\Infrastructure\Bus\Exception;
 
-use TimeTracker\Shared\Domain\Bus\Command\Command;
+use App\Shared\Domain\Bus\Command\Command;
 
 class CommandNotRegisteredException extends \Exception
 {

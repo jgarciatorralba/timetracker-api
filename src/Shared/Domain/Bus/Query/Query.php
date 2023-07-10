@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared\Domain\Bus\Query;
+namespace App\Shared\Domain\Bus\Query;
 
 interface Query
 {

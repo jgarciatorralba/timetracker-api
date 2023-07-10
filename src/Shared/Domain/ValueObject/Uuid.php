@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared\Domain\ValueObject;
+namespace App\Shared\Domain\ValueObject;
 
 use Stringable;
 use InvalidArgumentException;

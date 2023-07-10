@@ -2,12 +2,12 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared\Infrastructure\Bus\Query;
+namespace App\Shared\Infrastructure\Bus\Query;
 
-use TimeTracker\Shared\Domain\Bus\Query\Query;
-use TimeTracker\Shared\Domain\Bus\Query\QueryBus;
-use TimeTracker\Shared\Domain\Bus\Query\Response;
-use TimeTracker\Shared\Infrastructure\Bus\Exception\QueryNotRegisteredException;
+use App\Shared\Domain\Bus\Query\Query;
+use App\Shared\Domain\Bus\Query\QueryBus;
+use App\Shared\Domain\Bus\Query\Response;
+use App\Shared\Infrastructure\Bus\Exception\QueryNotRegisteredException;
 use Symfony\Component\Messenger\Stamp\HandledStamp;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Messenger\Exception\HandlerFailedException;

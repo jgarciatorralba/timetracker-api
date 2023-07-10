@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Infrastructure\Api;
+namespace TimeTracker;
 
 use Symfony\Bundle\FrameworkBundle\Kernel\MicroKernelTrait;
 use Symfony\Component\DependencyInjection\Loader\Configurator\ContainerConfigurator;
@@ -47,11 +47,11 @@ final class Kernel extends BaseKernel
 
     public function getCacheDir(): string
     {
-        return dirname(__DIR__, 4) . '/var/cache/' . $this->environment;
+        return dirname(__DIR__, 3) . '/var/cache/' . $this->environment;
     }
 
     public function getLogDir(): string
     {
-        return dirname(__DIR__, 4) . '/var/log/' . $this->environment;
+        return dirname(__DIR__, 3) . '/var/log/' . $this->environment;
     }
 }

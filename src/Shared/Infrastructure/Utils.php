@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared;
+namespace App\Shared;
 
 use DateTimeImmutable;
 use DateTimeInterface;

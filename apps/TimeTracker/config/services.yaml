@@ -5,16 +5,16 @@ services:
     autowire: true
     autoconfigure: true
 
-  TimeTracker\Infrastructure\Api\:
+  TimeTracker\:
     resource: "../src/"
     exclude:
       - "../src/DependencyInjection/"
       - "../src/Kernel.php"
 
-  TimeTracker\Infrastructure\Api\Controller\:
+  TimeTracker\Controller\:
     resource: "../src/Controller/"
-    tags: ['controller.service_arguments']
+    tags: ["controller.service_arguments"]
 
   # Wire
-  TimeTracker\Shared\:
-    resource: "../../../../src/Shared"
+  App\Shared\:
+    resource: "../../../src/Shared"

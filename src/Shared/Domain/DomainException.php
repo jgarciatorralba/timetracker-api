@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared\Domain;
+namespace App\Shared\Domain;
 
 use Exception;
 

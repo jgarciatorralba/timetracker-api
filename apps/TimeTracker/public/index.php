@@ -1,6 +1,6 @@
 <?php
 
-use TimeTracker\Infrastructure\Api\Kernel as AppKernel;
+use TimeTracker\Kernel as AppKernel;
 use Symfony\Component\ErrorHandler\Debug;
 
 require dirname(__DIR__) . '/config/bootstrap.php';

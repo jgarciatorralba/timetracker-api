@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Shared\Infrastructure\Bus\Exception;
+namespace App\Shared\Infrastructure\Bus\Exception;
 
-use TimeTracker\Shared\Domain\Bus\Query\Query;
+use App\Shared\Domain\Bus\Query\Query;
 
 class QueryNotRegisteredException extends \Exception
 {
