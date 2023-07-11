@@ -5,18 +5,15 @@ services:
     autowire: true
     autoconfigure: true
 
-  TimeTracker\:
+  App\:
     resource: "../src/"
     exclude:
       - "../src/DependencyInjection/"
       - "../src/Kernel.php"
 
-  TimeTracker\Controller\:
-    resource: "../src/Controller/"
+  App\UI\Controller\:
+    resource: "../src/UI/Controller/"
     tags: ["controller.service_arguments"]
-
-  App\:
-    resource: "../../../src/"
 
   _instanceof:
     App\Shared\Domain\Bus\Query\QueryHandler:

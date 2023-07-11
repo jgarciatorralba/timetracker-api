@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace TimeTracker\Controller\Users;
+namespace App\UI\Controller\Users;
 
+use App\UI\Controller\ApiController;
 use App\Users\Application\Query\FindUsers\FindUsersQuery;
-use TimeTracker\Controller\ApiController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
