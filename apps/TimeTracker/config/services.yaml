@@ -15,6 +15,15 @@ services:
     resource: "../src/Controller/"
     tags: ["controller.service_arguments"]
 
-  # Wire
-  App\Shared\:
-    resource: "../../../src/Shared"
+  App\:
+    resource: "../../../src/"
+
+  _instanceof:
+    App\Shared\Domain\Bus\Query\QueryHandler:
+      tags: [{ name: messenger.message_handler, bus: query.bus }]
+
+    App\Shared\Domain\Bus\Command\CommandHandler:
+      tags: [{ name: messenger.message_handler, bus: command.bus }]
+
+    App\Shared\Domain\Bus\Event\EventSubscriber:
+      tags: [messenger.message_handler]
