@@ -121,7 +121,7 @@ class User extends AggregateRoot
             'created_at' => $this->createdAt,
             'updated_at' => $this->updatedAt,
             'deleted_at' => $this->deletedAt,
-            'workEntries' => array_map(fn($item) => $item->toArray(), $this->workEntries->toArray())
+            'work_entries' => array_map(fn($item) => $item->toArray(), $this->workEntries->toArray())
         ];
     }
 }

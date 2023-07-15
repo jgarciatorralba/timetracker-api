@@ -79,7 +79,7 @@ class WorkEntry extends AggregateRoot
     {
         return [
             'id' => $this->id->value(),
-            'user' => $this->user->toArray(),
+            'user' => $this->user->id()->value(),
             'created_at' => $this->createdAt,
             'updated_at' => $this->updatedAt,
             'deleted_at' => $this->deletedAt,
