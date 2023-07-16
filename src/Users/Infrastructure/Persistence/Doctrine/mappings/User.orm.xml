@@ -1,8 +1,9 @@
 <doctrine-mapping>
     <entity
-            name="App\Users\Domain\User"
-            table="users"
-            repository_class="App\Users\Infrastructure\Persistence\Doctrine\DoctrineUserRepository">
+        name="App\Users\Domain\User"
+        table="users"
+        repository_class="App\Users\Infrastructure\Persistence\Doctrine\DoctrineUserRepository"
+    >
         <id name="id" type="uuid" column="id" />
         <field name="name" type="string" column="name" length="255" />
         <field name="email" type="string" column="email" length="255" unique="true" />
@@ -10,7 +11,11 @@
         <field name="updatedAt" type="datetime_immutable" column="updated_at" />
         <field name="deletedAt" type="datetime_immutable" column="deleted_at" nullable="true" />
 
-        <one-to-many field="workEntries" target-entity="App\WorkEntries\Domain\WorkEntry" mapped-by="user">
+        <one-to-many
+            field="workEntries"
+            target-entity="App\WorkEntries\Domain\WorkEntry"
+            mapped-by="user"
+        >
             <order-by>
                 <order-by-field name="createdAt" direction="DESC" />
             </order-by>
