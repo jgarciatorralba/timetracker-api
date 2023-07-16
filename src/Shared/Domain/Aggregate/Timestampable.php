@@ -10,7 +10,7 @@ trait Timestampable
 {
     private DateTimeImmutable $createdAt;
     private DateTimeImmutable $updatedAt;
-    private DateTimeImmutable $deletedAt;
+    private ?DateTimeImmutable $deletedAt = null;
 
     public function updatedAt(): DateTimeImmutable
 	{
