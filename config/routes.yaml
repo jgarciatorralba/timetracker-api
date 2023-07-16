@@ -10,4 +10,9 @@ users_get_all:
     controller: App\UI\Controller\Users\GetUsersController
     methods: GET
 
+users_create:
+    path: /users
+    controller: App\UI\Controller\Users\CreateUserController
+    methods: POST
+
 # WORK ENTRIES
