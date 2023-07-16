@@ -10,7 +10,7 @@ use App\Shared\Domain\Bus\Query\Query;
 use App\Shared\Domain\Bus\Query\QueryBus;
 use App\Shared\Domain\Bus\Query\Response;
 
-abstract class ApiController
+abstract class BaseController
 {
     public function __construct(
         private readonly QueryBus $queryBus,

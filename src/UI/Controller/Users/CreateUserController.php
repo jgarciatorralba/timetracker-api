@@ -6,13 +6,13 @@ namespace App\UI\Controller\Users;
 
 use DateTimeImmutable;
 use App\Shared\Domain\ValueObject\Uuid;
-use App\UI\Controller\ApiController;
+use App\UI\Controller\BaseController;
 use App\UI\Request\CreateUserRequest;
 use App\Users\Application\Command\CreateUser\CreateUserCommand;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
-final class CreateUserController extends ApiController
+final class CreateUserController extends BaseController
 {
     public function __invoke(CreateUserRequest $request): Response
     {
