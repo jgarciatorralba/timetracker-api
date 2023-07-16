@@ -22,10 +22,7 @@ final class UuidType extends Type
 
     public function getSQLDeclaration(array $column, AbstractPlatform $platform): string
     {
-        return $platform->getBinaryTypeDeclarationSQL([
-            'length' => '16',
-            'fixed' => true,
-        ]);
+        return 'UUID';
     }
 
     public function convertToPHPValue($value, AbstractPlatform $platform): ?Uuid
@@ -39,7 +36,7 @@ final class UuidType extends Type
         }
 
         try {
-            return new Uuid(SymfonyUuid::fromBinary($value)->toRfc4122());
+            return new Uuid(SymfonyUuid::fromString($value)->toRfc4122());
         } catch (InvalidArgumentException $e) {
             throw ConversionException::conversionFailed($value, $this->getName(), $e);
         }
@@ -47,10 +44,8 @@ final class UuidType extends Type
 
     public function convertToDatabaseValue($value, AbstractPlatform $platform): ?string
     {
-        $toBinary = fn(string $value): string => SymfonyUuid::fromString($value)->toBinary();
-
         if ($value instanceof Uuid) {
-            return $toBinary($value->value());
+            return $value->value();
         }
 
         if (null === $value || $value === '') {
@@ -62,7 +57,7 @@ final class UuidType extends Type
         }
 
         try {
-            return $toBinary($value);
+            return $value;
         } catch (InvalidArgumentException $e) {
             throw ConversionException::conversionFailed($value, $this->getName(), $e);
         }
