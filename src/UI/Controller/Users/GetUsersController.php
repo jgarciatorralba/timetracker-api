@@ -13,9 +13,8 @@ final class GetUsersController extends BaseController
 {
     public function __invoke(): Response
     {
-        $statusCode = Response::HTTP_OK;
         $response = $this->ask(new FindUsersQuery);
 
-        return new JsonResponse($response->data(), $statusCode);
+        return new JsonResponse($response->data(), Response::HTTP_OK);
     }
 }
