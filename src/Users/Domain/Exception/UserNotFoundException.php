@@ -22,7 +22,7 @@ class UserNotFoundException extends DomainException
     public function errorMessage(): string
     {
         return sprintf(
-            'User with id "%s" could not be found.',
+            "User with id '%s' could not be found.",
             $this->id->value()
         );
     }

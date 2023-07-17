@@ -22,7 +22,7 @@ class WorkEntryNotFoundException extends DomainException
     public function errorMessage(): string
     {
         return sprintf(
-            'Work entry with id "%s" could not be found.',
+            "Work entry with id '%s' could not be found.",
             $this->id->value()
         );
     }
