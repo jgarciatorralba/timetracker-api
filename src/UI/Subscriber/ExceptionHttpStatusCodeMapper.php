@@ -4,8 +4,9 @@ declare(strict_types=1);
 
 namespace App\UI\Subscriber;
 
+use App\Users\Domain\Exception\EmailAlreadyInUseException;
 use App\Users\Domain\Exception\UserNotFoundException;
-use App\Users\Domain\Exception\WorkEntryNotFoundException;
+use App\WorkEntries\Domain\Exception\WorkEntryNotFoundException;
 use Symfony\Component\HttpFoundation\Response;
 
 final class ExceptionHttpStatusCodeMapper
@@ -13,6 +14,7 @@ final class ExceptionHttpStatusCodeMapper
     private const EXCEPTIONS = [
         // Users
         UserNotFoundException::class => Response::HTTP_NOT_FOUND,
+        EmailAlreadyInUseException::class => Response::HTTP_CONFLICT,
 
         // Work entries
         WorkEntryNotFoundException::class => Response::HTTP_NOT_FOUND,
