@@ -18,4 +18,12 @@ interface UserRepository
     public function findAll(): array;
 
     public function findOneById(Uuid $id): User|null;
+
+    /** @return User[] */
+    public function findByCriteria(
+        array $criteria,
+        ?array $orderBy = null,
+        ?int $limit = null,
+        ?int $offset = null
+    ): array;
 }
