@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Shared\Domain\Aggregate;
 
 use App\Shared\Domain\Bus\Event\DomainEvent;
+use DateTimeImmutable;
 
 abstract class AggregateRoot
 {
@@ -23,5 +24,10 @@ abstract class AggregateRoot
         $this->events[] = $event;
     }
 
-    abstract public function toArray(): array;
+    abstract public function toArray(bool $isNestedArray = false): array;
+
+    final protected function formatDateTime(DateTimeImmutable $dateTime): string
+    {
+        return $dateTime->format('Y-m-d H:i:s');
+    }
 }
