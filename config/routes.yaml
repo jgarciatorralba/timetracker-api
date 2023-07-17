@@ -10,6 +10,13 @@ users_get_all:
     controller: App\UI\Controller\Users\GetUsersController
     methods: GET
 
+users_get:
+    path: /users/{id}
+    controller: App\UI\Controller\Users\GetUserByIdController
+    methods: GET
+    requirements:
+        id: '%routing.uuid%'
+
 users_create:
     path: /users
     controller: App\UI\Controller\Users\CreateUserController
