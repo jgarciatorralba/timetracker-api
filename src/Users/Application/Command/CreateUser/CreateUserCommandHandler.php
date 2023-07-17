@@ -5,14 +5,14 @@ declare(strict_types=1);
 namespace App\Users\Application\Command\CreateUser;
 
 use App\Users\Domain\User;
-use App\Users\Domain\Contract\UserRepository;
+use App\Users\Domain\Service\CreateUser;
 use App\Shared\Domain\Bus\Command\CommandHandler;
 use App\Shared\Domain\ValueObject\Uuid;
 
 final class CreateUserCommandHandler implements CommandHandler
 {
     public function __construct(
-        private readonly UserRepository $userRepository
+        private readonly CreateUser $createUser
     ) {}
     
     public function __invoke(CreateUserCommand $command): void
@@ -25,6 +25,6 @@ final class CreateUserCommandHandler implements CommandHandler
             updatedAt: $command->updatedAt()
         );
 
-        $this->userRepository->create($user);
+        $this->createUser->__invoke($user);
     }
 }
