@@ -2,7 +2,7 @@ services:
   db:
     image: postgres:alpine
     volumes:
-      - "db_app:/var/lib/postgresql"
+      - "pgdata:/var/lib/postgresql/data"
     environment:
       POSTGRES_DB: ${POSTGRES_DB}
       POSTGRES_USER: ${POSTGRES_USER}
@@ -39,7 +39,7 @@ services:
 volumes:
   symfony_app_var:
   symfony_app_vendor:
-  db_app:
+  pgdata:
 
 networks:
   symfony_app:
