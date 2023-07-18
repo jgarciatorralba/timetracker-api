@@ -22,4 +22,9 @@ users_create:
     controller: App\UI\Controller\Users\CreateUserController
     methods: POST
 
+users_update:
+    path: /users
+    controller: App\UI\Controller\Users\UpdateUserController
+    methods: PUT
+
 # WORK ENTRIES
