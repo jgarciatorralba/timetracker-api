@@ -6,7 +6,6 @@ namespace App\Users\Domain\Service;
 
 use App\Users\Domain\User;
 use App\Users\Domain\Contract\UserRepository;
-use App\Shared\Domain\ValueObject\Uuid;
 use App\Users\Domain\Exception\EmailAlreadyInUseException;
 
 final class CreateUser
