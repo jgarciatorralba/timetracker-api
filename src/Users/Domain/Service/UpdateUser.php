@@ -15,14 +15,20 @@ final class UpdateUser
 
     public function __invoke(User $user, array $updatedData): void
     {
-        if (!empty($updatedData['name'])) {
-            $user->updateName($updatedData['name']);
-        }
-        if (!empty($updatedData['email'])) {
-            $user->updateEmail($updatedData['email']);
-        }
-        $user->updateUpdatedAt($updatedData['updated_at']);
+        $hasChanged = false;
 
-        $this->userRepository->update($user);
+        if (!empty($updatedData['name']) && $updatedData['name'] !== $user->name()) {
+            $user->updateName($updatedData['name']);
+            $hasChanged = true;
+        }
+        if (!empty($updatedData['email']) && $updatedData['email'] !== $user->email()) {
+            $user->updateEmail($updatedData['email']);
+            $hasChanged = true;
+        }
+
+        if ($hasChanged) {
+            $user->updateUpdatedAt($updatedData['updated_at']);
+            $this->userRepository->update($user);
+        }
     }
 }
