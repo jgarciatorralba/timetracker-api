@@ -2,8 +2,9 @@
 
 declare(strict_types=1);
 
-namespace App\UI\Request;
+namespace App\UI\Request\Users;
 
+use App\UI\Request\AbstractRequest;
 use Symfony\Component\Validator\Constraints as Assert;
 
 final class UpdateUserRequest extends AbstractRequest

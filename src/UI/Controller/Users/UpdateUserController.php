@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\UI\Controller\Users;
 
 use App\UI\Controller\BaseController;
-use App\UI\Request\UpdateUserRequest;
+use App\UI\Request\Users\UpdateUserRequest;
 use App\Users\Application\Command\UpdateUser\UpdateUserCommand;
 use DateTimeImmutable;
 use Symfony\Component\HttpFoundation\Response;

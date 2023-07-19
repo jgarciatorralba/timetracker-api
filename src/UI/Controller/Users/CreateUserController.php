@@ -7,7 +7,7 @@ namespace App\UI\Controller\Users;
 use DateTimeImmutable;
 use App\Shared\Domain\ValueObject\Uuid;
 use App\UI\Controller\BaseController;
-use App\UI\Request\CreateUserRequest;
+use App\UI\Request\Users\CreateUserRequest;
 use App\Users\Application\Command\CreateUser\CreateUserCommand;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
