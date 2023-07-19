@@ -29,7 +29,9 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
 
     public function delete(User $user): void
     {
-        $user->updateDeletedAt(new DateTimeImmutable());
+        $now = new DateTimeImmutable();
+        $user->updateUpdatedAt($now);
+        $user->updateDeletedAt($now);
         $this->updateEntity();
     }
 

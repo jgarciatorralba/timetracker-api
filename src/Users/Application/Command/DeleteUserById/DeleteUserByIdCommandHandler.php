@@ -21,9 +21,6 @@ final class DeleteUserByIdCommandHandler implements CommandHandler
         $userId = Uuid::fromString($command->id());
         $user = $this->findUserById->__invoke($userId);
 
-        $this->deleteUser->__invoke($user, [
-            'updated_at' => $command->updatedAt(),
-            'deleted_at' => $command->deletedAt()
-        ]);
+        $this->deleteUser->__invoke($user);
     }
 }
