@@ -81,9 +81,12 @@ class WorkEntry extends AggregateRoot
             'id' => $this->id->value(),
             'created_at' => $this->formatDateTime($this->createdAt),
             'updated_at' => $this->formatDateTime($this->updatedAt),
-            'start_date' => $this->formatDateTime($this->startDate),
-            'end_date' => $this->formatDateTime($this->endDate)
+            'start_date' => $this->formatDateTime($this->startDate)
         ];
+
+        if (!empty($this->endDate)) {
+            $workEntryArray += ['end_date' => $this->formatDateTime($this->endDate)];
+        }
 
         return $isNestedArray ? $workEntryArray : $workEntryArray + ['user' => $this->user->toArray(true)];
     }
