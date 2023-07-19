@@ -27,4 +27,9 @@ users_update:
     controller: App\UI\Controller\Users\UpdateUserController
     methods: PUT
 
+users_delete:
+    path: /users/{id}
+    controller: App\UI\Controller\Users\DeleteUserByIdController
+    methods: DELETE
+
 # WORK ENTRIES
