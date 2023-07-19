@@ -31,5 +31,11 @@ users_delete:
     path: /users/{id}
     controller: App\UI\Controller\Users\DeleteUserByIdController
     methods: DELETE
+    requirements:
+        id: '%routing.uuid%'
 
 # WORK ENTRIES
+work_entries_create:
+    path: /work_entries
+    controller: App\UI\Controller\WorkEntries\CreateWorkEntryController
+    methods: POST
