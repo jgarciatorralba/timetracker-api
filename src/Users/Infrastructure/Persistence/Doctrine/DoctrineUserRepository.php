@@ -35,12 +35,15 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
 
     public function findAll(): array
     {
-        return $this->repository()->findAll();
+        return $this->repository()->findBy(['deletedAt' => null]);
     }
 
     public function findOneById(Uuid $id): User|null
     {
-        return $this->repository()->find($id->value());
+        return $this->repository()->findOneBy([
+            'id' => $id->value(),
+            'deletedAt' => null
+        ]);
     }
 
     public function findByCriteria(
