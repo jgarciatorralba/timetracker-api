@@ -8,7 +8,6 @@ use App\Shared\Domain\ValueObject\Uuid;
 use App\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 use App\WorkEntries\Domain\WorkEntry;
 use App\WorkEntries\Domain\Contract\WorkEntryRepository;
-use DateTimeImmutable;
 
 class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntryRepository
 {
@@ -29,15 +28,12 @@ class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntr
 
     public function delete(WorkEntry $workEntry): void
     {
-        $now = new DateTimeImmutable();
-        $workEntry->updateUpdatedAt($now);
-        $workEntry->updateDeletedAt($now);
         $this->updateEntity();
     }
 
     public function findAll(): array
     {
-        return $this->repository()->findBy(['deletedAt' => null]);
+        return $this->findByCriteria(['deletedAt' => null]);
     }
 
     public function findOneById(Uuid $id): WorkEntry|null
