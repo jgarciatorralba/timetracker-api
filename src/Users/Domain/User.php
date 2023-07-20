@@ -118,13 +118,18 @@ class User extends AggregateRoot
             'id' => $this->id->value(),
             'name' => $this->name,
             'email' => $this->email,
-            'work_entries' => array_map(fn($item) => $item->toArray(true), $this->workEntries->toArray()),
+            'work_entries' => [],
             'created_at' => $this->formatDateTime($this->createdAt),
             'updated_at' => $this->formatDateTime($this->updatedAt),
         ];
 
         if ($isNestedArray) {
             unset($userArray['work_entries']);
+        } else {
+            $userArray['work_entries'] = array_map(
+                fn($item) => $item->toArray(true),
+                $this->workEntries->toArray()
+            );
         }
 
         return $userArray;

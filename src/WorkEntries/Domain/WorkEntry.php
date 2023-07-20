@@ -79,7 +79,7 @@ class WorkEntry extends AggregateRoot
     {
         $workEntryArray = [
             'id' => $this->id->value(),
-            'user' => $this->user->toArray(true),
+            'user' => [],
             'start_date' => $this->formatDateTime($this->startDate),
             'end_date' => !empty($this->endDate) ? $this->formatDateTime($this->endDate) : null,
             'created_at' => $this->formatDateTime($this->createdAt),
@@ -88,6 +88,8 @@ class WorkEntry extends AggregateRoot
 
         if ($isNestedArray) {
             unset($workEntryArray['user']);
+        } else {
+            $workEntryArray['user'] = $this->user->toArray(true);
         }
 
         return $workEntryArray;
