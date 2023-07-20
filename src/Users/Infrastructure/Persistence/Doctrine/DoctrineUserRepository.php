@@ -8,7 +8,6 @@ use App\Shared\Domain\ValueObject\Uuid;
 use App\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 use App\Users\Domain\Contract\UserRepository;
 use App\Users\Domain\User;
-use DateTimeImmutable;
 
 class DoctrineUserRepository extends DoctrineRepository implements UserRepository
 {
@@ -29,10 +28,6 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
 
     public function delete(User $user): void
     {
-        $now = new DateTimeImmutable();
-        $user->updateUpdatedAt($now);
-        $user->updateDeletedAt($now);
-
         $this->updateEntity();
     }
 

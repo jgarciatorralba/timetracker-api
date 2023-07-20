@@ -13,8 +13,10 @@ final class DeleteUser
        private readonly UserRepository $userRepository
     ) {}
 
-    public function __invoke(User $user): void
+    public function __invoke(User $user, array $updatedData): void
     {
+        $user->updateUpdatedAt($updatedData['updated_at']);
+        $user->updateDeletedAt($updatedData['deleted_at']);
         $this->userRepository->delete($user);
     }
 }
