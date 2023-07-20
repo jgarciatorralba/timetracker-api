@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Users\Infrastructure\Persistence\Doctrine;
+namespace App\WorkEntries\Infrastructure\Persistence\Doctrine;
 
 use App\Shared\Domain\ValueObject\Uuid;
 use App\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
@@ -13,7 +13,7 @@ class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntr
 {
     protected function entityClass(): string
     {
-        return User::class;
+        return WorkEntry::class;
     }
 
     public function create(WorkEntry $workEntry): void
