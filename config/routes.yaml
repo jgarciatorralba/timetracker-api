@@ -1,46 +1,15 @@
 # FAVICON (avoid console error)
 favicon:
-  path: /favicon.ico
-  controller:
-  methods: GET
+    path: /favicon.ico
+    controller:
+    methods: GET
 
 # USERS
-users_get_all:
-    path: /users
-    controller: App\UI\Controller\Users\GetUsersController
-    methods: GET
-
-users_get:
-    path: /users/{id}
-    controller: App\UI\Controller\Users\GetUserByIdController
-    methods: GET
-    requirements:
-        id: '%routing.uuid%'
-
-users_create:
-    path: /users
-    controller: App\UI\Controller\Users\CreateUserController
-    methods: POST
-
-users_update:
-    path: /users
-    controller: App\UI\Controller\Users\UpdateUserController
-    methods: PUT
-
-users_delete:
-    path: /users/{id}
-    controller: App\UI\Controller\Users\DeleteUserByIdController
-    methods: DELETE
-    requirements:
-        id: '%routing.uuid%'
+users:
+    resource: routes/users.yaml
+    prefix: /api/
 
 # WORK ENTRIES
-work_entries_get_all:
-    path: /work_entries
-    controller: App\UI\Controller\WorkEntries\GetWorkEntriesController
-    methods: GET
-
-work_entries_create:
-    path: /work_entries
-    controller: App\UI\Controller\WorkEntries\CreateWorkEntryController
-    methods: POST
+work_entries:
+    resource: routes/work_entries.yaml
+    prefix: /api/
