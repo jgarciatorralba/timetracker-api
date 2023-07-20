@@ -1,4 +1,3 @@
-# USERS
 users_get_all:
     path: /users
     controller: App\UI\Controller\Users\GetUsersController

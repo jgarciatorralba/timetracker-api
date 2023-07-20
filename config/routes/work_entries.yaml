@@ -1,4 +1,3 @@
-# WORK ENTRIES
 work_entries_get_all:
     path: /work_entries
     controller: App\UI\Controller\WorkEntries\GetWorkEntriesController

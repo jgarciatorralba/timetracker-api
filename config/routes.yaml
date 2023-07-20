@@ -4,12 +4,10 @@ favicon:
     controller:
     methods: GET
 
-# USERS
 users:
     resource: routes/users.yaml
     prefix: /api/
 
-# WORK ENTRIES
 work_entries:
     resource: routes/work_entries.yaml
     prefix: /api/
