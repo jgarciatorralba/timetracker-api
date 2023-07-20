@@ -4,10 +4,10 @@ declare(strict_types=1);
 
 namespace App\Users\Infrastructure\Persistence\Doctrine;
 
-use App\Users\Domain\User;
 use App\Shared\Domain\ValueObject\Uuid;
-use App\Users\Domain\Contract\UserRepository;
 use App\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
+use App\Users\Domain\Contract\UserRepository;
+use App\Users\Domain\User;
 use DateTimeImmutable;
 
 class DoctrineUserRepository extends DoctrineRepository implements UserRepository
@@ -32,12 +32,13 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
         $now = new DateTimeImmutable();
         $user->updateUpdatedAt($now);
         $user->updateDeletedAt($now);
+
         $this->updateEntity();
     }
 
     public function findAll(): array
     {
-        return $this->repository()->findBy(['deletedAt' => null]);
+        return $this->findByCriteria(['deletedAt' => null]);
     }
 
     public function findOneById(Uuid $id): User|null
