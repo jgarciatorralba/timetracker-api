@@ -29,19 +29,19 @@ class WorkEntry extends AggregateRoot
     public static function create(
         Uuid $id,
         User $user,
-        DateTimeImmutable $createdAt,
-        DateTimeImmutable $updatedAt,
         DateTimeImmutable $startDate,
-        ?DateTimeImmutable $endDate
+        ?DateTimeImmutable $endDate,
+        DateTimeImmutable $createdAt,
+        DateTimeImmutable $updatedAt
     ): self {
         return new self(
             id: $id,
             user: $user,
+            startDate: $startDate,
+            endDate: $endDate,
             createdAt: $createdAt,
             updatedAt: $updatedAt,
-            deletedAt: null,
-            startDate: $startDate,
-            endDate: $endDate
+            deletedAt: null
         );
     }
 
@@ -79,12 +79,17 @@ class WorkEntry extends AggregateRoot
     {
         $workEntryArray = [
             'id' => $this->id->value(),
-            'created_at' => $this->formatDateTime($this->createdAt),
-            'updated_at' => $this->formatDateTime($this->updatedAt),
+            'user' => $this->user->toArray(true),
             'start_date' => $this->formatDateTime($this->startDate),
-            'end_date' => !empty($this->endDate) ? $this->formatDateTime($this->endDate) : null
+            'end_date' => !empty($this->endDate) ? $this->formatDateTime($this->endDate) : null,
+            'created_at' => $this->formatDateTime($this->createdAt),
+            'updated_at' => $this->formatDateTime($this->updatedAt)
         ];
 
-        return $isNestedArray ? $workEntryArray : $workEntryArray + ['user' => $this->user->toArray(true)];
+        if ($isNestedArray) {
+            unset($workEntryArray['user']);
+        }
+
+        return $workEntryArray;
     }
 }
