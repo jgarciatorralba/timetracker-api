@@ -16,6 +16,9 @@ class User extends AggregateRoot
 {
     use Timestampable;
 
+    /**
+     * @var Collection<int, WorkEntry>
+     */
     private Collection $workEntries;
 
     public function __construct(
@@ -75,6 +78,9 @@ class User extends AggregateRoot
         $this->email = $email;
     }
 
+    /**
+     * @return Collection<int, WorkEntry>
+     */
     public function workEntries(): Collection
     {
         return $this->workEntries;
@@ -112,6 +118,9 @@ class User extends AggregateRoot
         return ($workEntry !== false) ? $workEntry : null;
     }
 
+    /**
+     * @return array<string, string|array<mixed>>
+     */
     public function toArray(bool $isNestedArray = false): array
     {
         $userArray = [
