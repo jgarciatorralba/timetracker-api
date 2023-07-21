@@ -35,8 +35,7 @@
         "editorconfig.editorconfig",
         "neilbrayfield.php-docblocker",
         "kaiwood.insert-cursor-at-beginning-of-each-line-selected",
-        "mykhailokushnir.vscode-php-getter-setter",
-        "syler.sass-indented"
+        "mykhailokushnir.vscode-php-getter-setter"
       ]
     }
   }
