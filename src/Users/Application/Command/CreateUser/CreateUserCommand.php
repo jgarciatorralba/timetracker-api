@@ -11,40 +11,41 @@ final class CreateUserCommand implements Command
 {
     public function __construct(
         private readonly string $id,
-		private readonly string $name,
-		private readonly string $email,
-		private readonly DateTimeImmutable $createdAt,
-		private readonly DateTimeImmutable $updatedAt,
+        private readonly string $name,
+        private readonly string $email,
+        private readonly DateTimeImmutable $createdAt,
+        private readonly DateTimeImmutable $updatedAt,
         private readonly ?DateTimeImmutable $deletedAt
-    ) {}
+    ) {
+    }
 
-	public function id(): string
-	{
-		return $this->id;
-	}
+    public function id(): string
+    {
+        return $this->id;
+    }
 
     public function name(): string
-	{
-		return $this->name;
-	}
+    {
+        return $this->name;
+    }
 
     public function email(): string
-	{
-		return $this->email;
-	}
+    {
+        return $this->email;
+    }
 
-	public function createdAt(): DateTimeImmutable
-	{
-		return $this->createdAt;
-	}
+    public function createdAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
 
-	public function updatedAt(): DateTimeImmutable
-	{
-		return $this->updatedAt;
-	}
+    public function updatedAt(): DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
 
     public function deletedAt(): ?DateTimeImmutable
-	{
-		return $this->deletedAt;
-	}
+    {
+        return $this->deletedAt;
+    }
 }

@@ -14,8 +14,9 @@ final class DeleteUserByIdCommandHandler implements CommandHandler
     public function __construct(
         private readonly FindUserById $findUserById,
         private readonly DeleteUser $deleteUser
-    ) {}
-    
+    ) {
+    }
+
     public function __invoke(DeleteUserByIdCommand $command): void
     {
         $userId = Uuid::fromString($command->id());

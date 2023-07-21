@@ -10,8 +10,9 @@ use App\Users\Domain\User;
 final class FindUsers
 {
     public function __construct(
-       private readonly UserRepository $userRepository
-    ) {}
+        private readonly UserRepository $userRepository
+    ) {
+    }
 
     /** @return User[] */
     public function __invoke(): array

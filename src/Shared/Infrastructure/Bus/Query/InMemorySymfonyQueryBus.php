@@ -17,14 +17,15 @@ class InMemorySymfonyQueryBus implements QueryBus
 {
     public function __construct(
         private readonly MessageBusInterface $queryBus
-    ) {}
+    ) {
+    }
 
     public function ask(Query $query): ?Response
     {
         try {
             /** @var HandledStamp $stamp */
             $stamp = $this->queryBus->dispatch($query)->last(HandledStamp::class);
-            
+
             return $stamp->getResult();
         } catch (NoHandlerForMessageException $exception) {
             throw new QueryNotRegisteredException($query);

@@ -10,7 +10,8 @@ final class FindUserByIdQuery implements Query
 {
     public function __construct(
         private readonly string $id
-    ) {}
+    ) {
+    }
 
     public function id(): string
     {

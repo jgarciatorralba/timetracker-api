@@ -13,7 +13,7 @@ final class GetWorkEntriesController extends BaseController
 {
     public function __invoke(): Response
     {
-        $response = $this->ask(new FindWorkEntriesQuery);
+        $response = $this->ask(new FindWorkEntriesQuery());
 
         return new JsonResponse($response->data(), Response::HTTP_OK);
     }

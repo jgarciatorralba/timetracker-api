@@ -10,8 +10,9 @@ use App\WorkEntries\Domain\WorkEntry;
 final class CreateWorkEntry
 {
     public function __construct(
-       private readonly UserRepository $userRepository
-    ) {}
+        private readonly UserRepository $userRepository
+    ) {
+    }
 
     public function __invoke(WorkEntry $workEntry): void
     {

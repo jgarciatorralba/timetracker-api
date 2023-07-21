@@ -59,7 +59,7 @@ class User extends AggregateRoot
     {
         return $this->name;
     }
-    
+
     public function email(): string
     {
         return $this->email;

@@ -15,7 +15,7 @@ final class Validator
 
     public function __construct()
     {
-        $this->validator = Validation::createValidator();    
+        $this->validator = Validation::createValidator();
     }
 
     public function validate(array $data, Assert\Collection $rules): array
@@ -24,7 +24,7 @@ final class Validator
         $violations = $this->validator->validate($data, $rules);
         if ($violations->count()) {
             /** @var ConstraintViolationInterface $violation */
-            foreach($violations as $violation) {
+            foreach ($violations as $violation) {
                 $fieldName = $this->parsePropertyPath($violation->getPropertyPath());
                 $errors[$fieldName] = $violation->getMessage();
             }
@@ -33,7 +33,7 @@ final class Validator
         return $errors;
     }
 
-    private function parsePropertyPath(string $propertyPath): string 
+    private function parsePropertyPath(string $propertyPath): string
     {
         return substr($propertyPath, 1, -1);
     }

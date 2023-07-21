@@ -11,8 +11,9 @@ use App\Users\Domain\Exception\EmailAlreadyInUseException;
 final class CreateUser
 {
     public function __construct(
-       private readonly UserRepository $userRepository
-    ) {}
+        private readonly UserRepository $userRepository
+    ) {
+    }
 
     public function __invoke(User $user): void
     {

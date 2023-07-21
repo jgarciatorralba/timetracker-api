@@ -10,8 +10,9 @@ use App\Users\Domain\User;
 final class DeleteUser
 {
     public function __construct(
-       private readonly UserRepository $userRepository
-    ) {}
+        private readonly UserRepository $userRepository
+    ) {
+    }
 
     public function __invoke(User $user, array $updatedData): void
     {

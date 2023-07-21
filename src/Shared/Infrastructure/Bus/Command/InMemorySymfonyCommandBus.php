@@ -15,7 +15,8 @@ class InMemorySymfonyCommandBus implements CommandBus
 {
     public function __construct(
         private readonly MessageBusInterface $commandBus
-    ) {}
+    ) {
+    }
 
     public function dispatch(Command $command): void
     {

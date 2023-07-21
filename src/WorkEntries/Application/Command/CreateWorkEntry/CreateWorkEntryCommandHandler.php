@@ -15,8 +15,9 @@ final class CreateWorkEntryCommandHandler implements CommandHandler
     public function __construct(
         private readonly FindUserById $findUserById,
         private readonly CreateWorkEntry $createWorkEntry
-    ) {}
-    
+    ) {
+    }
+
     public function __invoke(CreateWorkEntryCommand $command): void
     {
         $user = $this->findUserById->__invoke(

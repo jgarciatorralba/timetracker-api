@@ -11,22 +11,23 @@ final class DeleteUserByIdCommand implements Command
 {
     public function __construct(
         private readonly string $id,
-		private readonly DateTimeImmutable $updatedAt,
-		private readonly DateTimeImmutable $deletedAt
-    ) {}
+        private readonly DateTimeImmutable $updatedAt,
+        private readonly DateTimeImmutable $deletedAt
+    ) {
+    }
 
-	public function id(): string
-	{
-		return $this->id;
-	}
+    public function id(): string
+    {
+        return $this->id;
+    }
 
-	public function updatedAt(): DateTimeImmutable
-	{
-		return $this->updatedAt;
-	}
+    public function updatedAt(): DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
 
-	public function deletedAt(): DateTimeImmutable
-	{
-		return $this->deletedAt;
-	}
+    public function deletedAt(): DateTimeImmutable
+    {
+        return $this->deletedAt;
+    }
 }

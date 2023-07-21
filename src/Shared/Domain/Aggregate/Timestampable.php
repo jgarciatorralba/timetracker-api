@@ -13,19 +13,19 @@ trait Timestampable
     private ?DateTimeImmutable $deletedAt = null;
 
     public function updatedAt(): DateTimeImmutable
-	{
-		return $this->updatedAt;
-	}
+    {
+        return $this->updatedAt;
+    }
 
-	public function createdAt(): DateTimeImmutable
-	{
-		return $this->createdAt;
-	}
+    public function createdAt(): DateTimeImmutable
+    {
+        return $this->createdAt;
+    }
 
     public function deletedAt(): DateTimeImmutable
-	{
-		return $this->deletedAt;
-	}
+    {
+        return $this->deletedAt;
+    }
 
     public function updateCreatedAt(DateTimeImmutable $createdAt): void
     {

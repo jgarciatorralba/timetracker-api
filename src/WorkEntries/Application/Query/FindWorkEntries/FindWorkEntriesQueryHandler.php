@@ -12,13 +12,14 @@ final class FindWorkEntriesQueryHandler implements QueryHandler
 {
     public function __construct(
         private readonly FindWorkEntries $findWorkEntries
-    ) {}
+    ) {
+    }
 
     public function __invoke(FindWorkEntriesQuery $query): FindWorkEntriesResponse
     {
         $workEntries = $this->findWorkEntries->__invoke();
         $workEntries = array_map(fn (AggregateRoot $workEntry) => $workEntry->toArray(), $workEntries);
-        
+
         return new FindWorkEntriesResponse($workEntries);
     }
 }

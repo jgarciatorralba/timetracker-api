@@ -10,7 +10,8 @@ final class FindUserByIdResponse implements Response
 {
     public function __construct(
         private readonly array $data
-    ) {}
+    ) {
+    }
 
     public function data(): array
     {

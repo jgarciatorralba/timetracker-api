@@ -29,7 +29,7 @@ final class CreateWorkEntryController extends BaseController
             updatedAt: new DateTimeImmutable(),
             deletedAt: null
         ));
-        
+
         return new JsonResponse(null, Response::HTTP_CREATED);
     }
 }

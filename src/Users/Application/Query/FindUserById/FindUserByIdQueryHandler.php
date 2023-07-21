@@ -12,7 +12,8 @@ final class FindUserByIdQueryHandler implements QueryHandler
 {
     public function __construct(
         private readonly FindUserById $findUserById
-    ) {}
+    ) {
+    }
 
     public function __invoke(FindUserByIdQuery $query): FindUserByIdResponse
     {

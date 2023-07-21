@@ -13,7 +13,7 @@ final class GetUsersController extends BaseController
 {
     public function __invoke(): Response
     {
-        $response = $this->ask(new FindUsersQuery);
+        $response = $this->ask(new FindUsersQuery());
 
         return new JsonResponse($response->data(), Response::HTTP_OK);
     }

@@ -12,13 +12,14 @@ final class FindUsersQueryHandler implements QueryHandler
 {
     public function __construct(
         private readonly FindUsers $findUsers
-    ) {}
+    ) {
+    }
 
     public function __invoke(FindUsersQuery $query): FindUsersResponse
     {
         $users = $this->findUsers->__invoke();
         $users = array_map(fn (AggregateRoot $user) => $user->toArray(), $users);
-        
+
         return new FindUsersResponse($users);
     }
 }

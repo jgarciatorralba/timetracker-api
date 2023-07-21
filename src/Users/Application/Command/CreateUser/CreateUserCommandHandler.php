@@ -13,8 +13,9 @@ final class CreateUserCommandHandler implements CommandHandler
 {
     public function __construct(
         private readonly CreateUser $createUser
-    ) {}
-    
+    ) {
+    }
+
     public function __invoke(CreateUserCommand $command): void
     {
         $user = User::create(

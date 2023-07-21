@@ -14,7 +14,8 @@ final class UpdateUserCommandHandler implements CommandHandler
     public function __construct(
         private readonly FindUserById $findUserById,
         private readonly UpdateUser $updateUser
-    ) {}
+    ) {
+    }
 
     public function __invoke(UpdateUserCommand $command): void
     {

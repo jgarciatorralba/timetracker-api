@@ -12,8 +12,9 @@ use App\Users\Domain\User;
 final class FindUserById
 {
     public function __construct(
-       private readonly UserRepository $userRepository
-    ) {}
+        private readonly UserRepository $userRepository
+    ) {
+    }
 
     public function __invoke(Uuid $id): User
     {

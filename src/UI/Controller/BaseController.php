@@ -15,7 +15,8 @@ abstract class BaseController
     public function __construct(
         private readonly QueryBus $queryBus,
         private readonly CommandBus $commandBus,
-    ) {}
+    ) {
+    }
 
     protected function ask(Query $query): ?Response
     {

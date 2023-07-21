@@ -10,8 +10,9 @@ use App\WorkEntries\Domain\WorkEntry;
 final class FindWorkEntries
 {
     public function __construct(
-       private readonly WorkEntryRepository $workEntryRepository
-    ) {}
+        private readonly WorkEntryRepository $workEntryRepository
+    ) {
+    }
 
     /** @return WorkEntry[] */
     public function __invoke(): array

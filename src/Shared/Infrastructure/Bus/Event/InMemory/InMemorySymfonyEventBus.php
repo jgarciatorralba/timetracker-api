@@ -13,14 +13,16 @@ final class InMemorySymfonyEventBus implements EventBus
 {
     public function __construct(
         private readonly MessageBusInterface $eventBus
-    ) {}
+    ) {
+    }
 
     public function publish(DomainEvent ...$events): void
     {
         foreach ($events as $event) {
             try {
                 $this->eventBus->dispatch($event);
-            } catch (NoHandlerForMessageException) {}
+            } catch (NoHandlerForMessageException) {
+            }
         }
     }
 }

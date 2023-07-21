@@ -23,7 +23,7 @@ final class UpdateUserController extends BaseController
             email: $data['email'] ?? null,
             updatedAt: new DateTimeImmutable()
         ));
-        
+
         return new JsonResponse(null, Response::HTTP_OK);
     }
 }
