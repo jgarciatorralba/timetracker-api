@@ -3,6 +3,13 @@ work_entries_get_all:
   controller: App\UI\Controller\WorkEntries\GetWorkEntriesController
   methods: GET
 
+work_entries_get:
+  path: /work_entries/{id}
+  controller: App\UI\Controller\WorkEntries\GetWorkEntryByIdController
+  methods: GET
+  requirements:
+    id: '%routing.uuid%'
+
 work_entries_create:
   path: /work_entries
   controller: App\UI\Controller\WorkEntries\CreateWorkEntryController
