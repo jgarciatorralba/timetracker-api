@@ -1,9 +1,9 @@
 work_entries_get_all:
-    path: /work_entries
-    controller: App\UI\Controller\WorkEntries\GetWorkEntriesController
-    methods: GET
+  path: /work_entries
+  controller: App\UI\Controller\WorkEntries\GetWorkEntriesController
+  methods: GET
 
 work_entries_create:
-    path: /work_entries
-    controller: App\UI\Controller\WorkEntries\CreateWorkEntryController
-    methods: POST
+  path: /work_entries
+  controller: App\UI\Controller\WorkEntries\CreateWorkEntryController
+  methods: POST

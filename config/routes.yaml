@@ -1,13 +1,13 @@
 # FAVICON (avoid console error)
 favicon:
-    path: /favicon.ico
-    controller:
-    methods: GET
+  path: /favicon.ico
+  controller:
+  methods: GET
 
 users:
-    resource: routes/users.yaml
-    prefix: /api/
+  resource: routes/users.yaml
+  prefix: /api/
 
 work_entries:
-    resource: routes/work_entries.yaml
-    prefix: /api/
+  resource: routes/work_entries.yaml
+  prefix: /api/

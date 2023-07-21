@@ -1,28 +1,28 @@
 users_get_all:
-    path: /users
-    controller: App\UI\Controller\Users\GetUsersController
-    methods: GET
+  path: /users
+  controller: App\UI\Controller\Users\GetUsersController
+  methods: GET
 
 users_get:
-    path: /users/{id}
-    controller: App\UI\Controller\Users\GetUserByIdController
-    methods: GET
-    requirements:
-        id: '%routing.uuid%'
+  path: /users/{id}
+  controller: App\UI\Controller\Users\GetUserByIdController
+  methods: GET
+  requirements:
+    id: '%routing.uuid%'
 
 users_create:
-    path: /users
-    controller: App\UI\Controller\Users\CreateUserController
-    methods: POST
+  path: /users
+  controller: App\UI\Controller\Users\CreateUserController
+  methods: POST
 
 users_update:
-    path: /users
-    controller: App\UI\Controller\Users\UpdateUserController
-    methods: PUT
+  path: /users
+  controller: App\UI\Controller\Users\UpdateUserController
+  methods: PUT
 
 users_delete:
-    path: /users/{id}
-    controller: App\UI\Controller\Users\DeleteUserByIdController
-    methods: DELETE
-    requirements:
-        id: '%routing.uuid%'
+  path: /users/{id}
+  controller: App\UI\Controller\Users\DeleteUserByIdController
+  methods: DELETE
+  requirements:
+    id: '%routing.uuid%'
