@@ -13,7 +13,7 @@ use Symfony\Component\Uid\Uuid as SymfonyUuid;
 
 final class UuidType extends Type
 {
-    const NAME = 'uuid';
+    private const NAME = 'uuid';
 
     public function getName(): string
     {
@@ -32,7 +32,11 @@ final class UuidType extends Type
         }
 
         if (!is_string($value)) {
-            throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'string', Uuid::class]);
+            throw ConversionException::conversionFailedInvalidType(
+                $value,
+                $this->getName(),
+                ['null', 'string', Uuid::class]
+            );
         }
 
         try {
@@ -53,7 +57,11 @@ final class UuidType extends Type
         }
 
         if (!is_string($value)) {
-            throw ConversionException::conversionFailedInvalidType($value, $this->getName(), ['null', 'string', AbstractUid::class]);
+            throw ConversionException::conversionFailedInvalidType(
+                $value,
+                $this->getName(),
+                ['null', 'string', AbstractUid::class]
+            );
         }
 
         try {
