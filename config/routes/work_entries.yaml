@@ -16,3 +16,10 @@ work_entries_create:
   path: /work_entries
   controller: App\UI\Controller\WorkEntries\CreateWorkEntryController
   methods: POST
+
+work_entries_delete:
+  path: /work_entries/{id}
+  controller: App\UI\Controller\WorkEntries\DeleteWorkEntryByIdController
+  methods: DELETE
+  requirements:
+    id: '%routing.uuid%'
