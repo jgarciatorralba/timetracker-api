@@ -28,9 +28,7 @@ final class CreateWorkEntryCommandHandler implements CommandHandler
             id: Uuid::fromString($command->id()),
             user: $user,
             startDate: $command->startDate(),
-            endDate: $command->endDate(),
-            createdAt: $command->createdAt(),
-            updatedAt: $command->updatedAt()
+            endDate: $command->endDate()
         );
 
         $this->createWorkEntry->__invoke($workEntry);

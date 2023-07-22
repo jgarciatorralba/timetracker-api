@@ -28,7 +28,6 @@ final class UpdateUser
         }
 
         if ($hasChanged) {
-            $user->updateUpdatedAt($updatedData['updated_at']);
             $this->userRepository->update($user);
         }
     }

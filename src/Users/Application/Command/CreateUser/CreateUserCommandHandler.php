@@ -21,9 +21,7 @@ final class CreateUserCommandHandler implements CommandHandler
         $user = User::create(
             id: Uuid::fromString($command->id()),
             name: $command->name(),
-            email: $command->email(),
-            createdAt: $command->createdAt(),
-            updatedAt: $command->updatedAt()
+            email: $command->email()
         );
 
         $this->createUser->__invoke($user);

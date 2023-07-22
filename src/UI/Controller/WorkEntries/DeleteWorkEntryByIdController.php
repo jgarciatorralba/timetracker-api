@@ -6,7 +6,6 @@ namespace App\UI\Controller\WorkEntries;
 
 use App\UI\Controller\BaseController;
 use App\WorkEntries\Application\Command\DeleteWorkEntryById\DeleteWorkEntryByIdCommand;
-use DateTimeImmutable;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -14,11 +13,7 @@ final class DeleteWorkEntryByIdController extends BaseController
 {
     public function __invoke(string $id): Response
     {
-        $this->dispatch(new DeleteWorkEntryByIdCommand(
-            id: $id,
-            updatedAt: new DateTimeImmutable(),
-            deletedAt: new DateTimeImmutable()
-        ));
+        $this->dispatch(new DeleteWorkEntryByIdCommand(id: $id));
 
         return new JsonResponse(null, Response::HTTP_NO_CONTENT);
     }

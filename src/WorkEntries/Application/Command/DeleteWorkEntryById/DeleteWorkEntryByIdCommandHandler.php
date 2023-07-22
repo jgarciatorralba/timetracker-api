@@ -22,9 +22,6 @@ final class DeleteWorkEntryByIdCommandHandler implements CommandHandler
         $workEntryId = Uuid::fromString($command->id());
         $workEntry = $this->findWorkEntryById->__invoke($workEntryId);
 
-        $this->deleteWorkEntry->__invoke($workEntry, [
-            'updated_at' => $command->updatedAt(),
-            'deleted_at' => $command->deletedAt()
-        ]);
+        $this->deleteWorkEntry->__invoke($workEntry);
     }
 }

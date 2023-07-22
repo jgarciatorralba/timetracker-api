@@ -7,7 +7,6 @@ namespace App\UI\Controller\Users;
 use App\UI\Controller\BaseController;
 use App\UI\Request\Users\UpdateUserRequest;
 use App\Users\Application\Command\UpdateUser\UpdateUserCommand;
-use DateTimeImmutable;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -20,8 +19,7 @@ final class UpdateUserController extends BaseController
         $this->dispatch(new UpdateUserCommand(
             id: $data['id'],
             name: $data['name'] ?? null,
-            email: $data['email'] ?? null,
-            updatedAt: new DateTimeImmutable()
+            email: $data['email'] ?? null
         ));
 
         return new JsonResponse(null, Response::HTTP_OK);

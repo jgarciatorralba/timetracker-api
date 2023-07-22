@@ -8,31 +8,34 @@ use DateTimeImmutable;
 
 trait Timestampable
 {
-    private DateTimeImmutable $createdAt;
-    private DateTimeImmutable $updatedAt;
-    private ?DateTimeImmutable $deletedAt = null;
+    public function __construct(
+        private ?DateTimeImmutable $createdAt = null,
+        private ?DateTimeImmutable $updatedAt = null,
+        private ?DateTimeImmutable $deletedAt = null
+    ) {
+    }
 
-    public function updatedAt(): DateTimeImmutable
+    public function updatedAt(): ?DateTimeImmutable
     {
         return $this->updatedAt;
     }
 
-    public function createdAt(): DateTimeImmutable
+    public function createdAt(): ?DateTimeImmutable
     {
         return $this->createdAt;
     }
 
-    public function deletedAt(): DateTimeImmutable
+    public function deletedAt(): ?DateTimeImmutable
     {
         return $this->deletedAt;
     }
 
-    public function updateCreatedAt(DateTimeImmutable $createdAt): void
+    public function updateCreatedAt(?DateTimeImmutable $createdAt): void
     {
         $this->createdAt = $createdAt;
     }
 
-    public function updateUpdatedAt(DateTimeImmutable $updatedAt): void
+    public function updateUpdatedAt(?DateTimeImmutable $updatedAt): void
     {
         $this->updatedAt = $updatedAt;
     }

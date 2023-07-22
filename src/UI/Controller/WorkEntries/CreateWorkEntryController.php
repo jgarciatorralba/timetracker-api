@@ -24,10 +24,7 @@ final class CreateWorkEntryController extends BaseController
             id: $id,
             userId: $data['userId'],
             startDate: new DateTimeImmutable($data['startDate']),
-            endDate: isset($data['endDate']) ? new DateTimeImmutable($data['endDate']) : null,
-            createdAt: new DateTimeImmutable(),
-            updatedAt: new DateTimeImmutable(),
-            deletedAt: null
+            endDate: isset($data['endDate']) ? new DateTimeImmutable($data['endDate']) : null
         ));
 
         return new JsonResponse(null, Response::HTTP_CREATED);

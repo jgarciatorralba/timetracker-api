@@ -24,8 +24,7 @@ final class UpdateUserCommandHandler implements CommandHandler
 
         $this->updateUser->__invoke($user, [
             'name' => $command->name(),
-            'email' => $command->email(),
-            'updated_at' => $command->updatedAt()
+            'email' => $command->email()
         ]);
     }
 }

@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\UI\Controller\Users;
 
-use DateTimeImmutable;
 use App\Shared\Domain\ValueObject\Uuid;
 use App\UI\Controller\BaseController;
 use App\UI\Request\Users\CreateUserRequest;
@@ -23,10 +22,7 @@ final class CreateUserController extends BaseController
         $this->dispatch(new CreateUserCommand(
             id: $id,
             name: $data['name'],
-            email: $data['email'],
-            createdAt: new DateTimeImmutable(),
-            updatedAt: new DateTimeImmutable(),
-            deletedAt: null
+            email: $data['email']
         ));
 
         return new JsonResponse(null, Response::HTTP_CREATED);

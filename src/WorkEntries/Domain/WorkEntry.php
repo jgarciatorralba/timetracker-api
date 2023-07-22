@@ -15,33 +15,22 @@ class WorkEntry extends AggregateRoot
     public function __construct(
         private Uuid $id,
         private readonly User $user,
-        DateTimeImmutable $createdAt,
-        DateTimeImmutable $updatedAt,
-        ?DateTimeImmutable $deletedAt,
         private DateTimeImmutable $startDate,
         private ?DateTimeImmutable $endDate
     ) {
-        $this->updateCreatedAt($createdAt);
-        $this->updateUpdatedAt($updatedAt);
-        $this->updateDeletedAt($deletedAt);
     }
 
     public static function create(
         Uuid $id,
         User $user,
         DateTimeImmutable $startDate,
-        ?DateTimeImmutable $endDate,
-        DateTimeImmutable $createdAt,
-        DateTimeImmutable $updatedAt
+        ?DateTimeImmutable $endDate
     ): self {
         return new self(
             id: $id,
             user: $user,
             startDate: $startDate,
-            endDate: $endDate,
-            createdAt: $createdAt,
-            updatedAt: $updatedAt,
-            deletedAt: null
+            endDate: $endDate
         );
     }
 

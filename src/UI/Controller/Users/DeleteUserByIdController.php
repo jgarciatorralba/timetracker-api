@@ -6,7 +6,6 @@ namespace App\UI\Controller\Users;
 
 use App\UI\Controller\BaseController;
 use App\Users\Application\Command\DeleteUserById\DeleteUserByIdCommand;
-use DateTimeImmutable;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
@@ -14,11 +13,7 @@ final class DeleteUserByIdController extends BaseController
 {
     public function __invoke(string $id): Response
     {
-        $this->dispatch(new DeleteUserByIdCommand(
-            id: $id,
-            updatedAt: new DateTimeImmutable(),
-            deletedAt: new DateTimeImmutable()
-        ));
+        $this->dispatch(new DeleteUserByIdCommand(id: $id));
 
         return new JsonResponse(null, Response::HTTP_NO_CONTENT);
     }

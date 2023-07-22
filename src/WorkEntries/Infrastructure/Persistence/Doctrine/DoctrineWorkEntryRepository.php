@@ -8,6 +8,7 @@ use App\Shared\Domain\ValueObject\Uuid;
 use App\Shared\Infrastructure\Persistence\Doctrine\DoctrineRepository;
 use App\WorkEntries\Domain\WorkEntry;
 use App\WorkEntries\Domain\Contract\WorkEntryRepository;
+use DateTimeImmutable;
 
 class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntryRepository
 {
@@ -18,16 +19,27 @@ class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntr
 
     public function create(WorkEntry $workEntry): void
     {
+        $now = new DateTimeImmutable();
+        $workEntry->updateCreatedAt($now);
+        $workEntry->updateUpdatedAt($now);
+
         $this->persist($workEntry);
     }
 
     public function update(WorkEntry $workEntry): void
     {
+        $now = new DateTimeImmutable();
+        $workEntry->updateUpdatedAt($now);
+
         $this->updateEntity();
     }
 
     public function delete(WorkEntry $workEntry): void
     {
+        $now = new DateTimeImmutable();
+        $workEntry->updateUpdatedAt($now);
+        $workEntry->updateDeletedAt($now);
+
         $this->updateEntity();
     }
 

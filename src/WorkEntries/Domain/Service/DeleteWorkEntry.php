@@ -14,10 +14,8 @@ final class DeleteWorkEntry
     ) {
     }
 
-    public function __invoke(WorkEntry $workEntry, array $updatedData): void
+    public function __invoke(WorkEntry $workEntry): void
     {
-        $workEntry->updateUpdatedAt($updatedData['updated_at']);
-        $workEntry->updateDeletedAt($updatedData['deleted_at']);
         $this->workEntryRepository->delete($workEntry);
     }
 }
