@@ -112,12 +112,6 @@ class User extends AggregateRoot
         return null;
     }
 
-    public function getLastWorkEntry(): ?WorkEntry
-    {
-        $workEntry = $this->workEntries->first();
-        return ($workEntry !== false) ? $workEntry : null;
-    }
-
     /**
      * @return array<string, string|array<mixed>>
      */
