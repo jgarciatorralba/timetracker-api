@@ -33,25 +33,20 @@ class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntr
 
     public function findAll(): array
     {
-        return $this->findByCriteria([]);
+        return $this->repository()->findAll();
     }
 
     public function findOneById(Uuid $id): WorkEntry|null
     {
-        return $this->repository()->findOneBy([
-            'id' => $id->value(),
-            'deletedAt' => null
-        ]);
+        return $this->repository()->findOneBy(['id' => $id->value()]);
     }
 
     public function findByCriteria(
-        array $criteria,
+        array $criteria = [],
         ?array $orderBy = null,
         ?int $limit = null,
         ?int $offset = null
     ): array {
-        $criteria['deletedAt'] = null;
-
         return $this->repository()->findBy($criteria, $orderBy, $limit, $offset);
     }
 }
