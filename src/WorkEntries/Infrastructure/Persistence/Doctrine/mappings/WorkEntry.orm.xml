@@ -7,6 +7,8 @@
         table="work_entries"
     >
         <id name="id" type="uuid" column="id" />
+        <field name="startDate" type="datetime_immutable" column="start_date" />
+        <field name="endDate" type="datetime_immutable" column="end_date" nullable="true" />
         <field name="createdAt" type="datetime_immutable" column="created_at" />
         <field name="updatedAt" type="datetime_immutable" column="updated_at" />
         <field name="deletedAt" type="datetime_immutable" column="deleted_at" nullable="true" />
@@ -18,8 +20,5 @@
         >
             <join-column name="user_id" referenced-column-name="id" />
         </many-to-one>
-
-        <field name="startDate" type="datetime_immutable" column="start_date" />
-        <field name="endDate" type="datetime_immutable" column="end_date" nullable="true" />
     </entity>
 </doctrine-mapping>
