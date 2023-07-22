@@ -7,7 +7,7 @@ namespace App\Users\Domain\Service;
 use App\Users\Domain\Contract\UserRepository;
 use App\Users\Domain\User;
 
-final class FindUsers
+final class FindUsersByCriteria
 {
     public function __construct(
         private readonly UserRepository $userRepository
@@ -15,8 +15,8 @@ final class FindUsers
     }
 
     /** @return User[] */
-    public function __invoke(): array
+    public function __invoke(array $criteria = []): array
     {
-        return $this->userRepository->findAll();
+        return $this->userRepository->findByCriteria($criteria);
     }
 }
