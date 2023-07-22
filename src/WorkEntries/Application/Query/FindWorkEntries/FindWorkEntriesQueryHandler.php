@@ -28,7 +28,7 @@ final class FindWorkEntriesQueryHandler implements QueryHandler
             foreach ($users as $user) {
                 $workEntries = array_merge($workEntries, $user->workEntries()->toArray());
             }
-            
+
             return new FindWorkEntriesResponse(
                 array_map(
                     fn (AggregateRoot $workEntry) => $workEntry->toArray(),
