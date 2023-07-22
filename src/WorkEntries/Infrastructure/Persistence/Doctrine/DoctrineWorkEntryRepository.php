@@ -33,7 +33,7 @@ class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntr
 
     public function findAll(): array
     {
-        return $this->findByCriteria(['deletedAt' => null]);
+        return $this->findByCriteria([]);
     }
 
     public function findOneById(Uuid $id): WorkEntry|null
@@ -50,6 +50,8 @@ class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntr
         ?int $limit = null,
         ?int $offset = null
     ): array {
+        $criteria['deletedAt'] = null;
+
         return $this->repository()->findBy($criteria, $orderBy, $limit, $offset);
     }
 }

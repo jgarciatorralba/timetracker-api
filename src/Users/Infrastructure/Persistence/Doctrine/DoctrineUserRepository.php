@@ -33,7 +33,7 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
 
     public function findAll(): array
     {
-        return $this->findByCriteria(['deletedAt' => null]);
+        return $this->findByCriteria([]);
     }
 
     public function findOneById(Uuid $id): User|null
@@ -50,6 +50,8 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
         ?int $limit = null,
         ?int $offset = null
     ): array {
+        $criteria['deletedAt'] = null;
+
         return $this->repository()->findBy($criteria, $orderBy, $limit, $offset);
     }
 }
