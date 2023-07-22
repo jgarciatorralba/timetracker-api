@@ -11,6 +11,6 @@ class SoftDeleteableFilter extends SQLFilter
 {
     public function addFilterConstraint(ClassMetadata $targetEntity, $targetTableAlias): string
     {
-        return $targetTableAlias.'.deleted_at IS NULL';
+        return $targetTableAlias . '.deleted_at IS NULL';
     }
 }
