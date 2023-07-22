@@ -37,12 +37,21 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
     public function delete(User $user): void
     {
         $now = new DateTimeImmutable();
+
         $user->updateUpdatedAt($now);
         $user->updateDeletedAt($now);
+
+        foreach ($user->workEntries() as $workEntry) {
+            $workEntry->updateUpdatedAt($now);
+            $workEntry->updateDeletedAt($now);
+        }
 
         $this->updateEntity();
     }
 
+    /**
+     * @return User[]
+     */
     public function findAll(): array
     {
         return $this->repository()->findAll();
@@ -53,6 +62,11 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
         return $this->repository()->findOneBy(['id' => $id->value()]);
     }
 
+    /**
+     * @param array<string, mixed> $criteria
+     * @param array<string, string>|null $orderBy
+     * @return User[]
+     */
     public function findByCriteria(
         array $criteria = [],
         ?array $orderBy = null,
