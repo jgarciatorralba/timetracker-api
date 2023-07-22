@@ -20,7 +20,7 @@ final class FindWorkEntriesQueryHandler implements QueryHandler
 
     public function __invoke(FindWorkEntriesQuery $query): FindWorkEntriesResponse
     {
-        if (!empty($userIds = $query->userIds())) {
+        if (!empty($userIds = array_filter($query->userIds()))) {
             $uuids = array_map(fn (string $userId) => Uuid::fromString($userId), $userIds);
             $users = $this->findUsersByCriteria->__invoke(['id' => $uuids]);
 
