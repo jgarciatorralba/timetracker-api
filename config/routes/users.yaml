@@ -1,9 +1,9 @@
-users_get_all:
+users_get:
   path: /users
   controller: App\UI\Controller\Users\GetUsersController
   methods: GET
 
-users_get:
+users_get_by_id:
   path: /users/{id}
   controller: App\UI\Controller\Users\GetUserByIdController
   methods: GET
