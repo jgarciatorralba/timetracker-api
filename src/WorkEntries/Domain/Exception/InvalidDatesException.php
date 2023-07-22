@@ -24,7 +24,7 @@ class InvalidDatesException extends DomainException
     public function errorMessage(): string
     {
         return sprintf(
-            "End date (%s) should not be lower than start date (%s).",
+            "End date (%s) should not be earlier than start date (%s).",
             $this->endDate->format('Y-m-d H:i:s'),
             $this->startDate->format('Y-m-d H:i:s')
         );
