@@ -27,10 +27,10 @@ final class CreateWorkEntryCommandHandler implements CommandHandler
         $workEntry = WorkEntry::create(
             id: Uuid::fromString($command->id()),
             user: $user,
-            createdAt: $command->createdAt(),
-            updatedAt: $command->updatedAt(),
             startDate: $command->startDate(),
-            endDate: null
+            endDate: $command->endDate(),
+            createdAt: $command->createdAt(),
+            updatedAt: $command->updatedAt()
         );
 
         $this->createWorkEntry->__invoke($workEntry);
