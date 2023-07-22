@@ -25,7 +25,11 @@ final class UpdateWorkEntry
             ? $workEntry->endDate()
             : $updatedData['endDate'];
 
-        if ($effectiveEndDate->getTimestamp() < $effectiveStartDate->getTimestamp()) {
+        if (
+            !is_null($effectiveEndDate)
+            && $effectiveEndDate->getTimestamp() !== 0
+            && $effectiveEndDate->getTimestamp() < $effectiveStartDate->getTimestamp()
+        ) {
             throw new InvalidDatesException($effectiveStartDate, $effectiveEndDate);
         }
 
@@ -40,9 +44,14 @@ final class UpdateWorkEntry
         }
         if (
             !empty($updatedData['endDate'])
-            && $updatedData['endDate']->getTimestamp() !== $workEntry->endDate()->getTimestamp()
+            && (
+                is_null($workEntry->endDate())
+                || $updatedData['endDate']->getTimestamp() !== $workEntry->endDate()->getTimestamp()
+            )
         ) {
-            $workEntry->updateEndDate($updatedData['endDate']);
+            $workEntry->updateEndDate(
+                $updatedData['endDate']->getTimestamp() === 0 ? null : $updatedData['endDate']
+            );
             $hasChanged = true;
         }
 

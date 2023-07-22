@@ -25,16 +25,15 @@ final class UpdateWorkEntryRequest extends AbstractRequest
                 new Assert\DateTime('Y-m-d H:i:s')
             ]),
             'endDate' => new Assert\Optional([
-                new Assert\NotBlank(),
                 new Assert\DateTime('Y-m-d H:i:s'),
                 new Assert\Callback(['callback' => [$this, 'validateEndDate']])
             ])
         ]);
     }
 
-    public function validateEndDate(string $endDate, ExecutionContextInterface $context): void
+    public function validateEndDate(?string $endDate, ExecutionContextInterface $context): void
     {
-        if (empty($this->payload()['startDate'])) {
+        if (empty($this->payload()['startDate']) || empty($endDate)) {
             return;
         }
 

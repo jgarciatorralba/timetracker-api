@@ -17,10 +17,17 @@ final class UpdateWorkEntryController extends BaseController
     {
         $data = $request->payload();
 
+        $endDate = null;
+        if (isset($data['endDate']) && empty($data['endDate'])) {
+            $endDate = (new DateTimeImmutable())->setTimestamp(0);
+        } elseif (!empty($data['endDate'])) {
+            $endDate = new DateTimeImmutable($data['endDate']);
+        }
+
         $this->dispatch(new UpdateWorkEntryCommand(
             id: $data['id'],
             startDate: !empty($data['startDate']) ? new DateTimeImmutable($data['startDate']) : null,
-            endDate: !empty($data['endDate']) ? new DateTimeImmutable($data['endDate']) : null
+            endDate: $endDate
         ));
 
         return new JsonResponse(null, Response::HTTP_OK);
