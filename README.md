@@ -2,7 +2,7 @@
 Demo project built using hexagonal architecture consisting on an API to track employee attendance.
 
 ## Content
-This is a **Symfony** project for a **REST API** application, with a development environment configured in **Docker**.
+This is a **Symfony** project for a **REST API** application, with a development environment configured in **Docker**. There is a more detailed description in folder `doc/` (only in Spanish).
 
 ---
 
@@ -21,7 +21,7 @@ This is a **Symfony** project for a **REST API** application, with a development
 ## Scripts
 - Run *PHPUnit* tests: `php ./vendor/bin/phpunit`
 - Run *CodeSniffer* analysis: `php ./vendor/bin/phpcs <filename|foldername>`
-- Correct coding standard violations detected by *CodeSniffer*: `php ./vendor/bin/phpcbf <filename|foldername>`
+- Correct previously detected coding standard violations: `php ./vendor/bin/phpcbf <filename|foldername>`
 - Run *PHPStan* analysis: `php ./vendor/bin/phpstan analyse <foldernames>`
 
 ---
