@@ -38,7 +38,7 @@ final class CreateWorkEntryRequest extends AbstractRequest
             $startDate = new DateTimeImmutable($this->payload()['startDate']);
             $endDate = new DateTimeImmutable($endDate);
 
-            if ($startDate && $endDate && $endDate < $startDate) {
+            if ($endDate < $startDate) {
                 $context->buildViolation("This value should not be lower than 'startDate'.")
                     ->addViolation();
             }

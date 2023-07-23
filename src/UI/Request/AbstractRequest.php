@@ -31,6 +31,9 @@ abstract class AbstractRequest
         return $this->request->getCurrentRequest()->get($key);
     }
 
+    /**
+     * @return array<mixed>
+     */
     public function payload(): array
     {
         return json_decode($this->request->getCurrentRequest()->getContent(), true) ?? [];
