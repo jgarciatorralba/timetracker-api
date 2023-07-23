@@ -2,7 +2,7 @@
 Demo project built using hexagonal architecture consisting on an API to track employee attendance.
 
 ## Content
-This is a **Symfony** project for a **REST API** application, with a development environment configured in **Docker**. There is a more detailed description in folder `doc/` (only in Spanish).
+This is a **Symfony** project for a **REST API** application, with a development environment configured in **Docker**. There is a more detailed description in folder `doc` (only in Spanish).
 
 ---
 
