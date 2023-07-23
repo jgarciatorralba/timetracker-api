@@ -37,6 +37,9 @@ abstract class DomainEvent
         return $this->occurredOn;
     }
 
+    /**
+     * @return array<string, string|array<string, string>>
+     */
     public function toArray(): array
     {
         return [
@@ -50,6 +53,9 @@ abstract class DomainEvent
         ];
     }
 
+    /**
+     * @return array<empty>
+     */
     protected function toPrimitives(): array
     {
         return [];
