@@ -14,7 +14,7 @@ This is a **Symfony** project for a **REST API** application, with a development
 - Inside the development container, install packages with `composer install`.
 - Even though an empty database named **app_db** should have been created with the package installation, you can still run `php bin/console doctrine:database:create` just in case.
 - With the database created and the connection to the application successfully established, execute the existing migrations in the `/etc/migrations` folder using the command `php bin/console doctrine:migrations:migrate`.
-- Despite the tables are empty, you are now ready to use the application. For this purpose, you can use **[this](https://www.postman.com/jgarciatorralba/workspace/public/collection/11475793-331c8ff1-0ef0-49e0-b789-34c41e5bb2c2?action=share&creator=11475793)** Postman collection to facilitate the interaction. The two main routes are **"/api/users"** and **"/api/work_entries"**.
+- Despite the tables are empty, you are now ready to use the application. For this purpose, you can use **[this](https://www.postman.com/jgarciatorralba/workspace/public/collection/11475793-331c8ff1-0ef0-49e0-b789-34c41e5bb2c2?action=share&creator=11475793)** Postman collection to facilitate the interaction. The two main routes are `"/api/users"` and `"/api/work_entries"`.
 
 ---
 
