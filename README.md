@@ -8,7 +8,7 @@ This is a **Symfony** project for a **REST API** application, with a development
 
 ## Installation
 - Clone this repo with `git clone git@github.com:jgarciatorralba/timetracker-api.git`
-- Navigate to the `./docker` folder, then run `docker-compose up -d` to download images and set up containers.
+- Navigate to the `/.docker` folder, then run `docker-compose up -d` to download images and set up containers.
     - **Important**: the configuration is set to expose the server container's port on host's port 8000, and the database container's port on host's 6432, so make sure they are available before running the above command.
 - Once completed, open with VisualStudio and in the command palette (View > Command Palette) select the option "Remote Containers: Reopen in Container".
 - Inside the development container, install packages with `composer install`.
