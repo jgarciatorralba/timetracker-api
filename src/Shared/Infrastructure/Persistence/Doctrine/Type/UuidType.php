@@ -9,6 +9,7 @@ use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types\Type;
 use Doctrine\DBAL\Types\ConversionException;
 use InvalidArgumentException;
+use Symfony\Component\Uid\AbstractUid;
 use Symfony\Component\Uid\Uuid as SymfonyUuid;
 
 final class UuidType extends Type
@@ -64,11 +65,7 @@ final class UuidType extends Type
             );
         }
 
-        try {
-            return $value;
-        } catch (InvalidArgumentException $e) {
-            throw ConversionException::conversionFailed($value, $this->getName(), $e);
-        }
+        return $value;
     }
 
     public function requiresSQLCommentHint(AbstractPlatform $platform): bool
