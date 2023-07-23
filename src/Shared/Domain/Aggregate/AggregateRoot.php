@@ -25,9 +25,4 @@ abstract class AggregateRoot
     }
 
     abstract public function toArray(bool $isNestedArray = false): array;
-
-    final protected function formatDateTime(DateTimeImmutable $dateTime): string
-    {
-        return $dateTime->format('Y-m-d H:i:s');
-    }
 }

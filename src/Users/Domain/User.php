@@ -7,6 +7,7 @@ namespace App\Users\Domain;
 use App\Shared\Domain\Aggregate\AggregateRoot;
 use App\Shared\Domain\Aggregate\Timestampable;
 use App\Shared\Domain\ValueObject\Uuid;
+use App\Shared\Utils;
 use App\WorkEntries\Domain\WorkEntry;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
@@ -109,15 +110,15 @@ class User extends AggregateRoot
             'name' => $this->name,
             'email' => $this->email,
             'work_entries' => [],
-            'created_at' => $this->formatDateTime($this->createdAt),
-            'updated_at' => $this->formatDateTime($this->updatedAt),
+            'created_at' => Utils::dateToString($this->createdAt),
+            'updated_at' => Utils::dateToString($this->updatedAt),
         ];
 
         if ($isNestedArray) {
             unset($userArray['work_entries']);
         } else {
             $userArray['work_entries'] = array_map(
-                fn($item) => $item->toArray(true),
+                fn ($item) => $item->toArray(true),
                 $this->workEntries->toArray()
             );
         }

@@ -5,6 +5,7 @@ namespace App\WorkEntries\Domain;
 use App\Shared\Domain\Aggregate\AggregateRoot;
 use App\Shared\Domain\Aggregate\Timestampable;
 use App\Shared\Domain\ValueObject\Uuid;
+use App\Shared\Utils;
 use App\Users\Domain\User;
 use DateTimeImmutable;
 
@@ -69,10 +70,10 @@ class WorkEntry extends AggregateRoot
         $workEntryArray = [
             'id' => $this->id->value(),
             'user' => [],
-            'start_date' => $this->formatDateTime($this->startDate),
-            'end_date' => !empty($this->endDate) ? $this->formatDateTime($this->endDate) : null,
-            'created_at' => $this->formatDateTime($this->createdAt),
-            'updated_at' => $this->formatDateTime($this->updatedAt)
+            'start_date' => Utils::dateToString($this->startDate),
+            'end_date' => !empty($this->endDate) ? Utils::dateToString($this->endDate) : null,
+            'created_at' => Utils::dateToString($this->createdAt),
+            'updated_at' => Utils::dateToString($this->updatedAt)
         ];
 
         if ($isNestedArray) {
