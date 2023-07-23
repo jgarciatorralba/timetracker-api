@@ -8,8 +8,14 @@ use App\Shared\Domain\Bus\Event\DomainEvent;
 
 abstract class AggregateRoot
 {
+    /**
+     * @var DomainEvent[]
+     */
     private array $events = [];
 
+    /**
+     * @return DomainEvent[]
+     */
     final public function pullEvents(): array
     {
         $events = $this->events;
@@ -23,5 +29,8 @@ abstract class AggregateRoot
         $this->events[] = $event;
     }
 
+    /**
+     * @return array<mixed>
+     */
     abstract public function toArray(bool $isNestedArray = false): array;
 }
