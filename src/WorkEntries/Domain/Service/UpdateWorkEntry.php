@@ -7,6 +7,7 @@ namespace App\WorkEntries\Domain\Service;
 use App\WorkEntries\Domain\WorkEntry;
 use App\WorkEntries\Domain\Contract\WorkEntryRepository;
 use App\WorkEntries\Domain\Exception\InvalidDatesException;
+use DateTimeImmutable;
 
 final class UpdateWorkEntry
 {
@@ -15,6 +16,9 @@ final class UpdateWorkEntry
     ) {
     }
 
+    /**
+     * @param array <string, DateTimeImmutable|null> $updatedData
+     */
     public function __invoke(WorkEntry $workEntry, array $updatedData): void
     {
         $effectiveStartDate = empty($updatedData['startDate'])

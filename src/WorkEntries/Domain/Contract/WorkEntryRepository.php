@@ -15,11 +15,16 @@ interface WorkEntryRepository
 
     public function delete(WorkEntry $workEntry): void;
 
+    /** @return WorkEntry[] */
     public function findAll(): array;
 
     public function findOneById(Uuid $id): WorkEntry|null;
 
-    /** @return WorkEntry[] */
+    /**
+     * @param array <string, mixed> $criteria
+     * @param array <string, string>|null $orderBy
+     * @return WorkEntry[]
+     */
     public function findByCriteria(
         array $criteria,
         ?array $orderBy = null,

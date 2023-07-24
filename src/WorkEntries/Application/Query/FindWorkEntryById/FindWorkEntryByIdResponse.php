@@ -9,6 +9,7 @@ use App\Shared\Domain\Bus\Query\Response;
 final class FindWorkEntryByIdResponse implements Response
 {
     public function __construct(
+        /** @var array <mixed> */
         private readonly array $data
     ) {
     }
