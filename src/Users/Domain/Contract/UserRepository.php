@@ -15,11 +15,16 @@ interface UserRepository
 
     public function delete(User $user): void;
 
+    /** @return User[] */
     public function findAll(): array;
 
     public function findOneById(Uuid $id): User|null;
 
-    /** @return User[] */
+    /**
+     * @param array <string, mixed> $criteria
+     * @param array <string, string>|null $orderBy
+     * @return User[]
+     */
     public function findByCriteria(
         array $criteria,
         ?array $orderBy = null,

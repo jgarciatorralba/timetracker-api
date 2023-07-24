@@ -14,6 +14,9 @@ final class UpdateUser
     ) {
     }
 
+    /**
+     * @param array <string, string|null> $updatedData
+     */
     public function __invoke(User $user, array $updatedData): void
     {
         $hasChanged = false;

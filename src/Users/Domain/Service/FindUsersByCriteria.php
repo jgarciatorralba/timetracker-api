@@ -14,7 +14,10 @@ final class FindUsersByCriteria
     ) {
     }
 
-    /** @return User[] */
+    /**
+     * @param array <string, mixed> $criteria
+     * @return User[]
+     */
     public function __invoke(array $criteria = []): array
     {
         return $this->userRepository->findByCriteria($criteria);
