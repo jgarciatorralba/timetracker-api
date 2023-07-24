@@ -17,8 +17,12 @@ class WorkEntry extends AggregateRoot
         private Uuid $id,
         private readonly User $user,
         private DateTimeImmutable $startDate,
-        private ?DateTimeImmutable $endDate
+        private ?DateTimeImmutable $endDate,
+        DateTimeImmutable $createdAt,
+        DateTimeImmutable $updatedAt
     ) {
+        $this->updateCreatedAt($createdAt);
+        $this->updateUpdatedAt($updatedAt);
     }
 
     public static function create(
@@ -31,7 +35,9 @@ class WorkEntry extends AggregateRoot
             id: $id,
             user: $user,
             startDate: $startDate,
-            endDate: $endDate
+            endDate: $endDate,
+            createdAt: new DateTimeImmutable(),
+            updatedAt: new DateTimeImmutable()
         );
     }
 

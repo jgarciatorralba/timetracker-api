@@ -19,10 +19,6 @@ class DoctrineWorkEntryRepository extends DoctrineRepository implements WorkEntr
 
     public function create(WorkEntry $workEntry): void
     {
-        $now = new DateTimeImmutable();
-        $workEntry->updateCreatedAt($now);
-        $workEntry->updateUpdatedAt($now);
-
         $this->persist($workEntry);
     }
 

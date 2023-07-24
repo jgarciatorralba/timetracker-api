@@ -9,6 +9,7 @@ use App\Shared\Domain\Aggregate\Timestampable;
 use App\Shared\Domain\ValueObject\Uuid;
 use App\Shared\Utils;
 use App\WorkEntries\Domain\WorkEntry;
+use DateTimeImmutable;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 
@@ -24,9 +25,14 @@ class User extends AggregateRoot
     public function __construct(
         private Uuid $id,
         private string $name,
-        private string $email
+        private string $email,
+        DateTimeImmutable $createdAt,
+        DateTimeImmutable $updatedAt
     ) {
         $this->workEntries = new ArrayCollection();
+
+        $this->updateCreatedAt($createdAt);
+        $this->updateUpdatedAt($updatedAt);
     }
 
     public static function create(
@@ -37,7 +43,9 @@ class User extends AggregateRoot
         return new self(
             id: $id,
             name: $name,
-            email: $email
+            email: $email,
+            createdAt: new DateTimeImmutable(),
+            updatedAt: new DateTimeImmutable()
         );
     }
 

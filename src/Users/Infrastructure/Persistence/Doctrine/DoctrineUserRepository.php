@@ -19,10 +19,6 @@ class DoctrineUserRepository extends DoctrineRepository implements UserRepositor
 
     public function create(User $user): void
     {
-        $now = new DateTimeImmutable();
-        $user->updateCreatedAt($now);
-        $user->updateUpdatedAt($now);
-
         $this->persist($user);
     }
 
