@@ -1,16 +1,19 @@
 # Time tracker API
+
 Demo project built using hexagonal architecture consisting on an API to track employee attendance.
 
 ## Content
+
 This is a **Symfony** project for a **REST API** application, with a development environment configured in **Docker**. There is a more detailed description in folder `doc` (only in Spanish).
 
 ---
 
 ## Installation
+
 - Clone this repo: `git clone git@github.com:jgarciatorralba/timetracker-api.git`
 - Navigate to the `/.docker` folder, then run `docker-compose up -d` to download images and set up containers.
-    - **Important**: the configuration is set to expose the server container's port on host's port 8000, and the database container's port on host's 6432, so make sure they are available before running the above command.
-- Once completed, open with VisualStudio and in the command palette (View > Command Palette) select the option "Remote Containers: Reopen in Container".
+  - **Important**: the configuration is set to expose the server container's port on host's port 8000, and the database container's port on host's 6432, so make sure they are available before running the above command.
+- Once completed, open with VisualStudio and in the command palette (View > Command Palette) select the option "Dev Containers: Reopen in Container".
 - Inside the development container, install packages with `composer install`.
 - Even though an empty database named **app_db** should have been created with the installation, you can still run `php bin/console doctrine:database:create` for good measure.
 - With the database created and the connection to the application successfully established, execute the existing migrations in folder `/etc/migrations` using the command `php bin/console doctrine:migrations:migrate`.
@@ -19,12 +22,14 @@ This is a **Symfony** project for a **REST API** application, with a development
 ---
 
 ## Scripts
-- Run *PHPUnit* tests: `php ./vendor/bin/phpunit`
-- Run *CodeSniffer* analysis: `php ./vendor/bin/phpcs <filename|foldername>`
+
+- Run _PHPUnit_ tests: `php ./vendor/bin/phpunit`
+- Run _CodeSniffer_ analysis: `php ./vendor/bin/phpcs <filename|foldername>`
 - Correct previously detected coding standard violations: `php ./vendor/bin/phpcbf <filename|foldername>`
-- Run *PHPStan* analysis: `php ./vendor/bin/phpstan analyse <foldernames>`
+- Run _PHPStan_ analysis: `php ./vendor/bin/phpstan analyse <foldernames>`
 
 ---
 
 ## Author
+
 - **Jorge García Torralba** &#8594; [jorge-garcia](https://github.com/jgarciatorralba)
