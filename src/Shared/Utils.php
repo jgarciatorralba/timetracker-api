@@ -6,6 +6,7 @@ namespace App\Shared;
 
 use DateTimeImmutable;
 use DateTimeInterface;
+use Exception;
 
 final class Utils
 {
@@ -14,6 +15,9 @@ final class Utils
         return $date->format(DateTimeInterface::ATOM);
     }
 
+    /**
+     * @throws Exception
+     */
     public static function stringToDate(string $date): DateTimeImmutable
     {
         return new DateTimeImmutable($date);
