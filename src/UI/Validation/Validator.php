@@ -18,6 +18,10 @@ final class Validator
         $this->validator = Validation::createValidator();
     }
 
+    /**
+     * @param array <mixed> $data
+     * @return array <string, string>
+     */
     public function validate(array $data, Assert\Collection $rules): array
     {
         $errors = [];
