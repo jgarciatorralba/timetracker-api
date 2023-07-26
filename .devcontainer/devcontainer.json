@@ -33,9 +33,8 @@
         "bmewburn.vscode-intelephense-client",
         "junstyle.php-cs-fixer",
         "editorconfig.editorconfig",
-        "neilbrayfield.php-docblocker",
-        "kaiwood.insert-cursor-at-beginning-of-each-line-selected",
-        "mykhailokushnir.vscode-php-getter-setter"
+        "swordev.phpstan",
+        "obliviousharmony.vscode-php-codesniffer"
       ]
     }
   }
